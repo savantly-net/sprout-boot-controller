@@ -1,0 +1,104 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>net.savantly.sprout</groupId>
+	<artifactId>boot-controller</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>sprout-boot-controller</name>
+	<description>Creates a default index page using the sprout module format</description>
+	<scm>
+		<url>https://github.com/savantly-net/sprout-boot-controller</url>
+		<connection>scm:git:https://github.com/savantly-net/sprout-boot-controller.git</connection>
+		<tag>HEAD</tag>
+	</scm>
+	<issueManagement>
+		<url>https://github.com/savantly-net/sprout-boot-controller/issues</url>
+		<system>GitHub</system>
+	</issueManagement>
+	<parent>
+		<groupId>net.savantly</groupId>
+		<artifactId>parent-pom</artifactId>
+		<version>1.0.0-RELEASE</version>
+	</parent>
+	<developers>
+		<developer>
+			<name>Jeremy Branham</name>
+			<email>jeremy@savantly.net</email>
+			<url>https://www.linkedin.com/in/jeremybranham</url>
+			<organization>Savantly.net</organization>
+			<organizationUrl>http://Savantly.net</organizationUrl>
+			<timezone>-6</timezone>
+		</developer>
+	</developers>
+	<licenses>
+		<license>
+			<name>Apache License Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+		</license>
+	</licenses>
+	<inceptionYear>2017</inceptionYear>
+
+	<properties>
+		<spring.boot.version>1.5.6.RELEASE</spring.boot.version>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-parent</artifactId>
+				<version>${spring.boot.version}</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+		</dependency>
+
+		<!-- Spring Dependencies -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+
+		<!-- TEST -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/junit/junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+
+
+
+	</dependencies>
+</project>
