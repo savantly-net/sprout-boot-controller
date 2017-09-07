@@ -2,7 +2,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.savantly.sprout</groupId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>sprout-spring-boot-starter</artifactId>
+	<version>0.0.1-RELEASE</version>
 	<name>sprout-spring-boot-starter</name>
 	<description>Creates a default index page using the sprout module format</description>
 	<scm>
@@ -86,7 +87,6 @@
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 
-
 		<!-- TEST -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -100,9 +100,5 @@
 			<scope>test</scope>
 		</dependency>
 
-
-
-
 	</dependencies>
-	<artifactId>sprout-spring-boot-starter</artifactId>
 </project>

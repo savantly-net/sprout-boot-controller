@@ -30,16 +30,16 @@ import org.thymeleaf.templateresolver.ITemplateResolver;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import net.savantly.sprout.autoconfigure.controller.DefaultSproutControllerConfiguration;
-import net.savantly.sprout.autoconfigure.controller.EnableSproutAutoconfigure;
+import net.savantly.sprout.autoconfigure.controller.EnableSproutController;
 import net.savantly.sprout.autoconfigure.controller.HomeController;
 
 
 
 @RunWith(SpringRunner.class)
 @WebAppConfiguration
-public class EnableSproutAutoconfigureTest {
+public class EnableSproutControllerTest {
 	
-	Logger log = LoggerFactory.getLogger(EnableSproutAutoconfigureTest.class);
+	Logger log = LoggerFactory.getLogger(EnableSproutControllerTest.class);
 	
 	@Autowired
 	WebApplicationContext ctx;
@@ -54,7 +54,7 @@ public class EnableSproutAutoconfigureTest {
 	
 	@Before
 	public void beforeEach(){
-		DefaultSproutControllerConfiguration controllerConfig = ctx.getBean(DefaultSproutControllerConfiguration.class);
+		SproutControllerConfiguration controllerConfig = ctx.getBean(DefaultSproutControllerConfiguration.class);
 		controllerConfig.getJsLibs().clear();
 		controllerConfig.getCssLibs().clear();
 	}
@@ -72,7 +72,7 @@ public class EnableSproutAutoconfigureTest {
 	
 	@Test
 	public void indexPageModelContainsExternalJsResource() throws Exception {
-		DefaultSproutControllerConfiguration controllerConfig = ctx.getBean(DefaultSproutControllerConfiguration.class);
+		SproutControllerConfiguration controllerConfig = ctx.getBean(DefaultSproutControllerConfiguration.class);
 		String testJsUrl = "http://test.js";
 		controllerConfig.getJsLibs().add(testJsUrl );
 		mvc.perform(get("/")).andExpect(MockMvcResultMatchers.model().attribute("jsLibResources", hasItem(testJsUrl)));
@@ -80,7 +80,7 @@ public class EnableSproutAutoconfigureTest {
 	
 	@Test
 	public void indexPageModelContainsClasspathJsResource() throws Exception {
-		DefaultSproutControllerConfiguration controllerConfig = ctx.getBean(DefaultSproutControllerConfiguration.class);
+		SproutControllerConfiguration controllerConfig = ctx.getBean(DefaultSproutControllerConfiguration.class);
 		String clientJsPath = "test.js";
 		String testJsUrl = "classpath:/static/" + clientJsPath;
 		controllerConfig.getJsLibs().add(testJsUrl );
@@ -89,8 +89,8 @@ public class EnableSproutAutoconfigureTest {
 	
 	@Test
 	public void indexPageMarkupContainsExternalJsResource() throws Exception {
-		DefaultSproutControllerConfiguration controllerConfig = ctx.getBean(DefaultSproutControllerConfiguration.class);
-		String testJsUrl = "http://test.js";
+		SproutControllerConfiguration controllerConfig = ctx.getBean(DefaultSproutControllerConfiguration.class);
+		String testJsUrl = "http://example.com/test.js";
 		controllerConfig.getJsLibs().add(testJsUrl );
 		MvcResult result = mvc.perform(get("/")).andExpect(status().isOk()).andReturn();
 		MockHttpServletResponse response = result.getResponse();
@@ -100,7 +100,7 @@ public class EnableSproutAutoconfigureTest {
 	
 	
 	@Configuration
-	@EnableSproutAutoconfigure
+	@EnableSproutController
 	public static class Config{
 		
 		@Bean

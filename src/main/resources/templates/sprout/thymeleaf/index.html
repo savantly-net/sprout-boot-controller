@@ -33,6 +33,9 @@
 
 	<!-- Fav Icon -->
 	<link rel="icon" href="/favicon.ico?v=1.0"></link>
+	
+	<!-- Core Library CSS Files -->
+	<link rel="stylesheet" data-th-each="resource : ${cssCoreLibResources}" th:href="${resource}"></link>
 
 	<!-- Library CSS Files -->
 	<link rel="stylesheet" data-th-each="resource : ${cssLibResources}" th:href="${resource}"></link>
@@ -47,13 +50,13 @@
 </head>
 
 <body class="ng-cloak" layout="column" flow-prevent-drop="" ng-controller="CoreController">
-	<header layout="column" ng-show="!hideHeader()" data-ng-include="'modules/core/views/header.view.html'"></header>
-	<div flex="flex" class="content" layout="column">
+	<header layout="column" th:attr="data-ng-include=${headerView}"></header>
+	<div flex="flex" class="content" layout="column" layout-margin="true">
 		<!-- <div ncy-breadcrumb=""></div> -->
 		<div flex="flex" data-ui-view="" class="page {{ pageClass }}"></div>
 	</div>
 	
-	<footer ng-show="(!hideFooter())" data-ng-include="'modules/core/views/footer.view.html'"></footer>
+	<footer th:attr="data-ng-include=${footerView}"></footer>
 
 	<!--Embedding The User Object-->
 	<script th:inline="javascript">
@@ -67,14 +70,15 @@
  
 /*]]>*/
 </script>
+
+	<!-- Core JS Libraries -->
+	<script data-th-each="resource : ${jsCoreLibResources}" th:src="${resource}"></script>
 	
 	<!-- JS Libraries -->
 	<script data-th-each="resource : ${jsLibResources}" th:src="${resource}"></script>
 	
-	<!-- 	<script src="libs/angular-mocks/angular-mocks.js"></script> -->
-
- 	<script src="config.js"></script>
-	<script src="application.js"></script>
+	<!-- Core JavaScript -->
+	<script data-th-each="resource : ${coreJsResources}" th:src="${resource}"></script>
 	
 	<!-- Modules JavaScript -->
 	<script data-th-each="resource : ${moduleJsResources}" th:src="${resource}"></script>

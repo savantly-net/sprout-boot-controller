@@ -13,4 +13,28 @@ public interface SproutControllerConfiguration {
 
 	List<String> getJsLibs();
 
+	List<String> getCssModuleSearchPatterns();
+
+	String getModulesFolder();
+
+	List<String> getJsModuleSearchPatterns();
+
+	List<String> getJsCoreSearchPatterns();
+
+	String getCoreFolder();
+
+	List<String> getJsCoreLibs();
+
+	String getFooterView();
+
+	String getHeaderView();
+
+	List<String> getCssCoreLibs();
+
+	String getFooterText();
+
+	String getLogoutUrl();
+
+	String getLoginUrl();
+
 }

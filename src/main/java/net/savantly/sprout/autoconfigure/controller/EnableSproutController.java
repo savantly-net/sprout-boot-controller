@@ -8,10 +8,12 @@ import java.lang.annotation.Target;
 
 import org.springframework.context.annotation.ComponentScan;
 
+import net.savantly.sprout.autoconfigure.SproutAutoConfigure;
+
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
-@ComponentScan(basePackageClasses={EnableSproutAutoconfigure.class})
-public @interface EnableSproutAutoconfigure {
+@ComponentScan(basePackageClasses={SproutAutoConfigure.class})
+public @interface EnableSproutController {
 
 }

@@ -4,7 +4,13 @@
 var ApplicationConfiguration = (function() {
 	// Init module configuration options
 	var applicationModuleName = 'sprout';
-	var applicationModuleVendorDependencies = [];
+	var applicationModuleVendorDependencies = ['ngAria', 
+	                                           'ngResource', 
+	                                           'ngCookies',  
+	                                           'ngAnimate',  
+	                                           'ngSanitize',
+	                                           'ui.router',
+	                                           'ngMaterial'];
 
 	// Add a new vertical module
 	var registerModule = function(moduleName, dependencies) {

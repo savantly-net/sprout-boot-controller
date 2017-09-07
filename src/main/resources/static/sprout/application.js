@@ -10,13 +10,6 @@ angular.module(ApplicationConfiguration.applicationModuleName).config(['$locatio
 	}
 ]);
 
-//Configuring $resource Service
-angular.module(ApplicationConfiguration.applicationModuleName).config(['$resourceProvider',
-	function($resourceProvider) {
-		// strip trailing slashes from calculated URLs
-	  //$resourceProvider.defaults.stripTrailingSlashes = true;
-	}
-]);
 
 //Then define the init function for starting up the application
 angular.element(document).ready(function() {
