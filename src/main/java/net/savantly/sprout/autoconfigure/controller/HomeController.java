@@ -1,4 +1,4 @@
-package net.savantly.sprout.boot.controller;
+package net.savantly.sprout.autoconfigure.controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -38,7 +38,7 @@ public class HomeController {
     @Autowired
     ObjectMapper objectMapper;
     @Autowired
-    private SproutBootControllerConfiguration controllerConfig;
+    private SproutControllerConfiguration controllerConfig;
     @Value("${info.app.buildNumber:0}")
     private String buildNumber;
     
@@ -47,7 +47,6 @@ public class HomeController {
     public String index(Model model, HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         final String modulePath = controllerConfig.getResourcePath() + "/modules";
-        final String generatedPath = controllerConfig.getResourcePath() + "/generated";
         
     	// Client Settings
     	model.addAttribute("clientConfig", controllerConfig.getConfig());
@@ -108,10 +107,8 @@ public class HomeController {
         
         List<String> cssResourceArray = new ArrayList<String>();
         getResourcePaths(modulePath + "/*/css/*.css", cssResourceArray);
-        getResourcePaths(generatedPath + "/*.css", cssResourceArray);
         model.addAttribute("moduleCssResources", cssResourceArray);
-
-        return "/sprout/index";
+        return "index";
     }
 
     private List<String> getResourcePaths(String pattern, List<String> resourceArray) {
@@ -124,7 +121,7 @@ public class HomeController {
 
                 URL resourceURL = resource.getURL();
                 log.debug(String.format("Found resource URL: %s", resourceURL));
-                if(resourceURL.getProtocol() == "file"){
+                if(resourceURL.getProtocol() == "file" || resourceURL.getProtocol() == "jar"){
                 	resourceArray.add(truncateBeginningOfPath(resourceURL.getPath() + "?v=" + buildNumber, "/static/"));
                 } else {
                 	resourceArray.add(resourceURL.toString());
@@ -132,7 +129,7 @@ public class HomeController {
                 
             }
         } catch (IOException e) {
-            log.error(String.format("Error processing resources for pattern: %s", pattern), e);
+            log.warn(String.format("Error processing resources for pattern: %s", pattern), e);
         }
         return resourceArray;
     }
@@ -152,5 +149,6 @@ public class HomeController {
             return fullPath.substring(splitIndex);
         }
     }
+   
 
 }

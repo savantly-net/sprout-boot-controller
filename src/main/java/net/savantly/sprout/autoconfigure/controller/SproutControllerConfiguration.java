@@ -1,9 +1,9 @@
-package net.savantly.sprout.boot.controller;
+package net.savantly.sprout.autoconfigure.controller;
 
 import java.util.List;
 import java.util.Map;
 
-public interface SproutBootControllerConfiguration {
+public interface SproutControllerConfiguration {
 
 	Map<String, Object> getConfig();
 

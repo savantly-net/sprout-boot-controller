@@ -1,4 +1,4 @@
-package net.savantly.sprout.boot.controller;
+package net.savantly.sprout.autoconfigure.controller;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Inherited;
@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
-@ComponentScan(basePackages={"net.savantly.sprout.boot.controller"})
-public @interface EnableSproutBootController {
+@ComponentScan(basePackageClasses={EnableSproutAutoconfigure.class})
+public @interface EnableSproutAutoconfigure {
 
 }

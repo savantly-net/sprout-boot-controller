@@ -1,4 +1,4 @@
-package net.savantly.sprout.boot.controller;
+package net.savantly.sprout.autoconfigure.controller;
 
 import java.util.Collection;
 
