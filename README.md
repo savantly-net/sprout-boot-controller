@@ -25,7 +25,7 @@ You can customize the Sprout starter with properties or providing your own imple
 
 ## Sprout Module Format  
 Create Sprout modules in your Spring-Boot app easily, and they are automatically registered on the client side - 
-![Example Modules](./src/test/resources/images/example-modules.png)  
+![Example Modules](./src/test/resources/images/client-modules.png)  
 
 The Sprout Core js includes Authentication and Menu services to make rapid prototyping. [Example Module](https://github.com/savantly-net/sprout-spring-boot-sample/tree/master/src/main/resources/static/modules/home)
 
