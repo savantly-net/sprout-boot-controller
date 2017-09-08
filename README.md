@@ -1,6 +1,6 @@
 # sprout-spring-boot-starter  
 
-Opinionated auto-configuration library that constructs a "single page application" [SPA] framework for your custom app.  
+Opinionated auto-configuration library that constructs a "single page application" [SPA] framework for your custom spring-boot app.  
 
 ## Installation 
 Include the artifact in your Spring-Boot project -  
