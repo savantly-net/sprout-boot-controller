@@ -12,8 +12,16 @@ angular.module('core').controller('CoreController', ['$scope', '$window', 'Authe
 		
 		$scope.authentication = Authentication;
 		$scope.isCollapsed = false;
-		$scope.menu = Menus.menus.mainMenu;
+		$scope.menus = Menus.getMenus();
 		$scope.$location = $location;
+		
+		$scope.doMenuItemCallback = function(subitem, $event){
+			if(subitem.callback){
+				subitem.callback($event);
+			} else {
+				console.warn('no callback defined');
+			}
+		};
 		
 		$scope.goToLogin = function(){
 			$window.location.href = clientConfig.loginUrl;

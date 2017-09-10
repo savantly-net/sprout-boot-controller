@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.savantly.sprout</groupId>
 	<artifactId>sprout-spring-boot-starter</artifactId>
-	<version>0.0.1-RELEASE</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>sprout-spring-boot-starter</name>
 	<description>Creates a default index page using the sprout module format</description>
 	<scm>
@@ -57,9 +57,9 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-parent</artifactId>
-				<version>${spring.boot.version}</version>
+				<groupId>net.savantly.sprout</groupId>
+				<artifactId>dependencies</artifactId>
+				<version>0.0.1-RELEASE</version>
 				<scope>import</scope>
 				<type>pom</type>
 			</dependency>

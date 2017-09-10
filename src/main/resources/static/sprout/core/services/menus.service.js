@@ -150,7 +150,7 @@ angular.module('core').service('Menus', [
 
 		// Add menu item object
 		var addMenuItem = function(options) {
-			var menuId = options.menuId || this.menuId || this.mainMenu.menuId;
+			var menuId = options.menuId || this.menuId || defaultMenuId;
 			
 			var newMenuItem = new MenuItem({
 				menuId: menuId,
@@ -212,6 +212,15 @@ angular.module('core').service('Menus', [
 			throw new Error('menuId + menuItemId was not found');
 		};
 
+		this.getMenus = function(){
+			var menuArray = [];
+			for (var property in this.menus) {
+			    if (this.menus.hasOwnProperty(property)) {
+			        menuArray.push(this.menus[property]);
+			    }
+			}
+			return menuArray;
+		};
 
 		// Extend prototypes with functions
 		Menu.prototype.shouldRender = shouldRender;
@@ -221,7 +230,7 @@ angular.module('core').service('Menus', [
 
 		
 		//Adding a main menu
-		this.mainMenu = this.addMenu({title:'Navigation'});
+		this.menus.mainMenu = this.addMenu({title:'Navigation'});
 		
 	}
 ]);
