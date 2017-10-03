@@ -1,3 +1,6 @@
+## This project uses Angular 1.4  
+If you want to use Angular 4+ go here - https://github.com/savantly-net/sprout-platform
+
 # sprout-spring-boot-starter  
 
 Opinionated auto-configuration library that constructs a "single page application" [SPA] framework for your custom spring-boot app.  
