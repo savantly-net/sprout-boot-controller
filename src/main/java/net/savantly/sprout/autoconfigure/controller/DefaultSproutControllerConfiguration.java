@@ -8,13 +8,13 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
-@Configuration(DefaultSproutControllerConfiguration.BEAN_NAME)
+@EnableConfigurationProperties(DefaultSproutControllerConfiguration.class)
 @ConfigurationProperties("savantly.sprout.controller")
 public class DefaultSproutControllerConfiguration implements SproutControllerConfiguration {
 	
-	protected static final String BEAN_NAME = "sproutControllerConfiguration";
+	public static final String BEAN_NAME = "sproutControllerConfiguration";
 
 	private Map<String, Object> config = new HashMap<>();
 	private String resourcePrefix = "classpath:";

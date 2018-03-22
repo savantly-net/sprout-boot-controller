@@ -8,18 +8,24 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ITemplateResolver;
 
+import net.savantly.sprout.autoconfigure.controller.DefaultSproutControllerConfiguration;
+import net.savantly.sprout.autoconfigure.controller.SproutControllerConfiguration;
 import net.savantly.sprout.autoconfigure.controller.SproutTemplateResolver;
 
 @Configuration
-@ComponentScan(basePackageClasses = { SproutAutoConfiguration.class })
 @AutoConfigureAfter(WebMvcAutoConfiguration.class)
 public class SproutAutoConfiguration {
+	
+	@Bean
+	@ConditionalOnMissingBean(name=DefaultSproutControllerConfiguration.BEAN_NAME)
+	public SproutControllerConfiguration sproutControllerConfiguration() {
+		return new DefaultSproutControllerConfiguration();
+	}
 
 	@ConditionalOnClass(SpringTemplateEngine.class)
 	public static class ThymeleafAutoConfigure {
