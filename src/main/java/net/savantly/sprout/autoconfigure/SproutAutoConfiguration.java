@@ -17,9 +17,9 @@ import org.thymeleaf.templateresolver.ITemplateResolver;
 import net.savantly.sprout.autoconfigure.controller.SproutTemplateResolver;
 
 @Configuration
-@ComponentScan(basePackageClasses = { SproutAutoConfigure.class })
+@ComponentScan(basePackageClasses = { SproutAutoConfiguration.class })
 @AutoConfigureAfter(WebMvcAutoConfiguration.class)
-public class SproutAutoConfigure {
+public class SproutAutoConfiguration {
 
 	@ConditionalOnClass(SpringTemplateEngine.class)
 	public static class ThymeleafAutoConfigure {
