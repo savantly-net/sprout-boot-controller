@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.savantly.sprout</groupId>
 	<artifactId>sprout-spring-boot-starter</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<name>sprout-spring-boot-starter</name>
 	<description>Creates a default index page using the sprout module format</description>
 	<scm>
@@ -39,7 +39,7 @@
 	<inceptionYear>2017</inceptionYear>
 
 	<properties>
-		<spring.boot.version>1.5.6.RELEASE</spring.boot.version>
+		<spring.boot.version>2.0.0.RELEASE</spring.boot.version>
 	</properties>
 
 	<build>
